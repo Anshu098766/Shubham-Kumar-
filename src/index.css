@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Rajdhani', 'Orbitron', -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: 0.03em;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .font-orbitron {
+    font-family: 'Orbitron', monospace, sans-serif;
+  }
+
+  .font-chakra {
+    font-family: 'Chakra Petch', sans-serif;
+  }
+
+  .font-rajdhani {
+    font-family: 'Rajdhani', sans-serif;
+  }
+
+  .font-mono-tech {
+    font-family: 'Share Tech Mono', monospace;
+  }
+}
+
+/* Futuristic Cyber HUD Grid background */
+.cyber-grid-bg {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.radar-sweep {
+  animation: radar-spin 4s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes radar-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.radar-sweep-fast {
+  animation: radar-spin 2s linear infinite;
+  transform-origin: center center;
+}
+
+.pulse-slow {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.8;
+    filter: drop-shadow(0 0 10px currentColor);
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 25px currentColor);
+  }
+}
+
+/* Custom glowing text and elements */
+.neon-text-glow {
+  text-shadow: 0 0 8px currentColor, 0 0 20px currentColor, 0 0 40px currentColor;
+}
+
+.neon-box-glow {
+  box-shadow: 0 0 20px var(--theme-glow, rgba(255, 119, 0, 0.35)), inset 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+/* Scanline overlay effect */
+.scanlines {
+  position: relative;
+}
+
+.scanlines::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+  background-size: 100% 4px;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0a08;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #332418;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff6b00;
+}
